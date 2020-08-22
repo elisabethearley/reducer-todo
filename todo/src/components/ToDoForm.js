@@ -13,15 +13,30 @@ const ToDoForm = ({dispatch}) => {
         setList('');
     };
 
+    const clearComplete = e => {
+        e.preventDefault();
+        dispatch({
+            type: 'CLEAR_COMPLETE'
+        });
+    };
+
     return (
         <div>
             <form onSubmit={submitForm}>
-                <label>
-                    ToDo
+                <label className='header'>
+                    <h1>To Do List</h1>
                 </label>
-                <input type='text' name='todo' onChange={handleChanges} value={list} />
-                <button> 
-                    Add Todo 
+                <input 
+                    type='text'
+                    value={list} 
+                    name='todo' 
+                    onChange={handleChanges} 
+                />
+                <button className='toDoBtn'> 
+                    Add 
+                </button>
+                <button onClick={clearComplete}>
+                    Clear Complete
                 </button>
             </form>
         </div>
