@@ -20,13 +20,13 @@ export const todo = [
 ]
 
 export const toDoReducer = (state, action) => {
-    switch (action, type) {
+    switch (action) {
+        case 'ADD_TODO':
+            return [
+                ...state, 
+                {list: action.payload, completed: false, id: Date.now() }
+            ];
         default:
             return state
-        // case 'ADD_TODO':
-        //     return [
-        //         ...state, 
-        //         {list: action.payload, completed: false, id: Date.now() }
-        //     ];
     }
 };
